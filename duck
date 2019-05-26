@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+query=https://duckduckgo.com/?q= #aa&t=ffab&ia=web
+
+for word in $@
+do
+    query="$query$word+"
+done
+
+query=`echo $query | rev | cut -c 2- | rev`
+
+open "$query&t=ffab&ia=web"
